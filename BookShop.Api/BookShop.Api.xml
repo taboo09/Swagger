@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookShop.Api</name>
+    </assembly>
+    <members>
+        <member name="M:BookShop.Api.Controllers.AuthorsController.GetAuthors">
+            <summary>
+            Get a list of authors
+            </summary>
+            <returns>An ActionResult of type IEnumerable of Author</returns>
+        </member>
+        <member name="M:BookShop.Api.Controllers.AuthorsController.GetAuthor(System.Guid)">
+            <summary>
+            Get an author by his/her id
+            </summary>
+            <param name="authorId">The id of the author you want to get</param>
+            <returns>An ActionResult of type Author</returns>
+        </member>
+        <member name="M:BookShop.Api.Controllers.AuthorsController.UpdateAuthor(System.Guid,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{BookShop.Api.Models.AuthorForUpdate})">
+            <summary>
+            Partially update an author
+            </summary>
+            <param name="authorId">The id of the author you want to get</param>
+            <param name="patchDocument">The set of operations to apply to the author</param>
+            <returns>An ActionResult of type Author</returns>
+            <remarks>Sample request (this request updates the author's **first name**)  
+            
+            PATCH /authors/authorId
+            [ 
+                {
+                    "op": "replace", 
+                    "path": "/firstname", 
+                    "value": "new first name" 
+                } 
+            ] 
+            </remarks>
+            <response code="200">Returns the updated author</response>
+        </member>
+        <member name="M:BookShop.Api.Controllers.BooksController.GetBook(System.Guid,System.Guid)">
+            <summary>
+            Get a book by id for a specific author
+            </summary>
+            <param name="authorId">The id of the author you want to get</param>
+            <param name="bookId">the id of the book</param>
+            <returns>An ActionResult of type Book</returns>
+            <response code="200">Returns the requested book</response>
+        </member>
+        <member name="T:BookShop.Api.Models.AuthorDto">
+            <summary>
+            An author with Id, FirstName and LastName fields
+            </summary>
+        </member>
+        <member name="P:BookShop.Api.Models.AuthorDto.Id">
+            <summary>
+            The id of the author
+            </summary>
+        </member>
+        <member name="P:BookShop.Api.Models.AuthorDto.FirstName">
+            <summary>
+            The first name of the  
+            **author**
+            </summary>
+        </member>
+        <member name="P:BookShop.Api.Models.AuthorDto.LastName">
+            <summary>
+            The last name of the author
+            </summary>         
+        </member>
+        <member name="T:BookShop.Api.Models.AuthorForUpdate">
+            <summary>
+            An author for update with FirstName and LastName fields
+            </summary>
+        </member>
+        <member name="P:BookShop.Api.Models.AuthorForUpdate.FirstName">
+            <summary>
+            The first name of the author
+            </summary>
+        </member>
+        <member name="P:BookShop.Api.Models.AuthorForUpdate.LastName">
+            <summary>
+            The last name of the author
+            </summary>         
+        </member>
+    </members>
+</doc>
